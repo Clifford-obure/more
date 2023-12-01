@@ -1,97 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,500;1,600;1,700;1,800;1,900&display=swap');
-
 * {
   margin: 0;
   padding: 0;
 }
+body{
+  font-family: 'Poppins', sans-serif;
+}
 /* css global */
 
-@media screen and (max-width: 640px) {
-  body {
-    width: 100%;
-  }
-  .header .menu_button {
-    display: none;
-  }
-  .header .menu_Icon {
-    display: block;
-  }
-  body .body .left {
-    display: none;
-  }
-  body .body .right {
-    width: 100%;
-    margin: 0 auto;
-  }
-  .body .right .searchbar .search {
-    width: 90%;
-    background-color: #bbbbbb63;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  }
-  .body .right .searchbar .search div {
-    border: 1px solid black;
-    margin-inline: 0.1rem;
-    border-radius: 3px;
-  }
-  .body .right .searchbar .search div input {
-    font-size: 8px;
-  }
-  .body .right .searchbar .search .material-symbols-outlined {
-    color: black;
-    background-color: white;
-  }
-  .body .right .searchbar .submit_button {
-    width: 12%;
-  }
 
-  .body .right .searchbar .submit_button button {
-    width: 100%;
-    background-color: white;
-  }
 
-  h1 {
-    font-size: 1rem;
-    font-weight: 700;
-    font-family: 'Poppins', sans-serif;
-  }
-  .product_listing {
-    flex-wrap: wrap;
-  }
-  body .body .right .products .product_listing .product_card {
-    width: 47%;
-  }
-
-  .scroll_buttons {
-    display: none;
-  }
-  .product_info {
-    flex-direction: column;
-  }
-  .product_category {
-    padding: 0;
-  }
-  .product_info p {
-    font-size: 0.2rem;
-  }
-  .footer {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  html body .footer .firstdiv {
-    width: 60%;
-  }
-}
-@media screen and (max-width: 768px) {
-  .left{
-    display: none;
-  }
-  .right {
-    width: 100%;
-    margin: 0 auto;
-  }
-  
-}
 
 /* css for the banner section */
 .body {
@@ -100,9 +18,7 @@
 .left {
   width: 20%;
 }
-.right {
-  width: 80%;
-}
+
 .slider-container {
   position: relative;
   max-width: 100%;
