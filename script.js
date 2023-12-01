@@ -103,3 +103,21 @@ function adjustCardsPerRow() {
 // Initial adjustment and listen for window resize
 adjustCardsPerRow();
 window.addEventListener('resize', adjustCardsPerRow);
+
+
+
+const sidebar = document.querySelector('.sidebar');
+const footer = document.querySelector('footer');
+
+document.addEventListener('scroll', () => {
+  const scrollPos = window.scrollY;
+  const footerOffset = footer.offsetTop;
+
+  if (scrollPos + sidebar.offsetHeight >= footerOffset) {
+    sidebar.style.position = 'absolute';
+    sidebar.style.bottom = '0';
+  } else {
+    sidebar.style.position = 'sticky';
+    sidebar.style.bottom = 'initial';
+  }
+});

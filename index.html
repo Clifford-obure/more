@@ -4,114 +4,142 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./style.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
+    <style>
+      @keyframes rotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
     <script src="./script.js" defer></script>
   </head>
-  <body>
-    <section class="header">
-      <img src="./assets/images/morelogo.png" alt="logo" width="256" />
+  <body class="w-full">
+  <section class="fixed top-0 w-full z-50 bg-white">
+  <!-- component -->
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+  <div  class="z-50" >
+    <div class="antialiased bg-gray-100 dark-mode:bg-gray-900" >
+      <div class="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 z-1000" >
+        <div x-data="{ open: true }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8 relative">
+          <div class="flex flex-row items-center justify-between p-4">
+            <a href="#" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">
+              <img src="https://more.co.ke/storage/app/logo/thumb-816x460-logo-64f339774c3d0.png" width="150" alt="logo">
+            </a>
+            <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
+              <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+                <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+              </svg>
+            </button>
+          </div>
+          <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow hidden pb-2 md:pb-0 md:flex md:justify-end md:flex-row">
+            <a class="px-1 lg:px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#"><i class="fa fa-list" aria-hidden="true"></i> Browse listing </i></a>
+            <a class=" lg:block hidden px-1 lg:px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#"><i class="fa fa-usd" aria-hidden="true"></i>Pricing</a>
 
-      <div class="menu_button">
-        <ol>
-          <li>
-            Browse Listing <span class="material-symbols-outlined"> list </span>
-          </li>
-          <li>
-            Pricing
-            <span class="material-symbols-outlined"> attach_money </span>
-          </li>
-          <li>Login <span class="material-symbols-outlined"> person </span></li>
-          <li>
-            Register <span class="material-symbols-outlined"> person_add </span>
-          </li>
-          <li><span class="material-symbols-outlined"> language </span></li>
-        </ol>
-        <div class="button">
-          <button>Got Something to sale? Post here</button>
+            <a class="px-1 lg:px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
+            <a class="px-1 lg:px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#"><i class="fa fa-user-plus" aria-hidden="true"></i> Register</a>
+            <div class=" lg:block hidden relative z-100" x-data="{ openMore: false }">
+              <button @click="openMore = !openMore" class=" flex flex-row text-gray-900 bg-gray-200 items-center w-full md:px-2  md:py-1 px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                <span><i class="fa fa-language" aria-hidden="true"></i></span>
+                <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': openMore, 'rotate-0': !openMore}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+              </button>
+              <div x-show="openMore" @click.away="openMore = false" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="  absolute right-0 w-full md:max-w-screen-sm md:w-screen mt-2 origin-top-right">
+                <div class="  px-2 pt-2 pb-4 bg-white rounded-md shadow-lg dark-mode:bg-gray-700">
+                  <a class="block px-4 py-2 text-sm text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Login</a>
+                  <a class="block px-4 py-2 text-sm text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Register</a>
+                </div>
+              </div>
+              <button class="listing-btn   ml-4 text-white px-2 py-1 rounded-lg py-0 font-semibold" style="background-color: #F94F01; ">Create Your listing here</button>
+            </div>
+            
+          </nav>
         </div>
       </div>
-      <div>
-        <div class="menu_Icon">
-          <span class="material-symbols-outlined"> menu </span>
-        </div>
-        <!-- <div class="cross_Icon">
-          <span class="material-symbols-outlined"> close </span>
-        </div> -->
-      </div>
-    </section>
-    <section class="body">
-      <section class="left">
-        <section class="category">
-          <div class="category_title">
-            <h3>Categories</h3>
-          </div>
-          <div class="category_data">
-            <img src="./assets/images/catlist1.png" alt="catlist1" />
-            <div class="cattext">
-              <p>Housing</p>
-              <p>405 ads</p>
-            </div>
-            <span class="material-symbols-outlined"> arrow_forward_ios </span>
-          </div>
-          <div class="category_data">
-            <img src="./assets/images/catlist1.png" alt="catlist1" />
-            <div class="cattext">
-              <p>Housing</p>
-              <p>405 ads</p>
-            </div>
-            <span class="material-symbols-outlined"> arrow_forward_ios </span>
-          </div>
-          <div class="category_data">
-            <img src="./assets/images/catlist1.png" alt="catlist1" />
-            <div class="cattext">
-              <p>Housing</p>
-              <p>405 ads</p>
-            </div>
-            <span class="material-symbols-outlined"> arrow_forward_ios </span>
-          </div>
-          <div class="category_data">
-            <img src="./assets/images/catlist1.png" alt="catlist1" />
-            <div class="cattext">
-              <p>Housing</p>
-              <p>405 ads</p>
-            </div>
-            <span class="material-symbols-outlined"> arrow_forward_ios </span>
-          </div>
-          <div class="category_data">
-            <img src="./assets/images/catlist1.png" alt="catlist1" />
-            <div class="cattext">
-              <p>Housing</p>
-              <p>405 ads</p>
-            </div>
-            <span class="material-symbols-outlined"> arrow_forward_ios </span>
-          </div>
-          <div class="category_data">
-            <img src="./assets/images/catlist1.png" alt="catlist1" />
-            <div class="cattext">
-              <p>Housing</p>
-              <p>405 ads</p>
-            </div>
-            <span class="material-symbols-outlined"> arrow_forward_ios </span>
-          </div>
-          <div class="category_data">
-            <img src="./assets/images/catlist1.png" alt="catlist1" />
-            <div class="cattext">
-              <p>Housing</p>
-              <p>405 ads</p>
-            </div>
-            <span class="material-symbols-outlined"> arrow_forward_ios </span>
-          </div>
-          <div class="down_arrow">
-            <span class="material-symbols-outlined"> expand_more </span>
-          </div>
+    </div>
+  </div>
+  </div>
+  </section>
+    <section class="body mt-24 ">
+      <section class="left ml-3 ">
+       
+        <section class="category ">
+          
+            <aside class="" aria-label="Sidebar">
+                <button class="w-full text-white py-1" style="background-color: #F94F01; font-size: 14px;">category</button>
+                <div class="px-3 py-4 overflow-y-auto rounded bg-gray-50 dark:bg-gray-800">
+                    <ul class="space-y-2">
+                        <!-- Sample category data, repeat as needed -->
+                        <li>
+                            <a href="#" class="flex justify-between items-center p-1 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <img src="./assets/images/catlist1.png" alt="Category Image" class="w-8 h-8 rounded-full mr-2">
+                                <span class="text-sm w-full ml-1">Animals from the usa</span>
+                                <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                            </a>
+                            <!-- Subcategories (if any) go here -->
+                        </li>
+
+                        <li>
+                            <a href="#" target="_blank" class="flex justify-between items-center p-1 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <img src="./assets/images/catlist1.png" alt="Category Image" class="w-8 h-8 rounded-full mr-2">
+                                <span class="text-sm w-full ml-1">Fashion</span>
+                                <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                            </a>
+                            <!-- Subcategories (if any) go here -->
+                        </li>
+
+                        <!-- Add more categories as needed -->
+                        <li>
+                          <a href="#" target="_blank" class="flex justify-between items-center p-1 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                              <img src="./assets/images/catlist1.png" alt="Category Image" class="w-8 h-8 rounded-full mr-2">
+                              <span class="text-sm w-full ml-1">Drugs</span>
+                              <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                          </a>
+                          <!-- Subcategories (if any) go here -->
+                      </li>
+
+                      <!-- Add more categories as needed -->
+                      <li>
+                        <a href="#" target="_blank" class="flex justify-between items-center p-1 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                            <img src="./assets/images/catlist1.png" alt="Category Image" class="w-8 h-8 rounded-full mr-2">
+                            <span class="text-sm w-full ml-1">Houses</span>
+                            <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                        </a>
+                        <!-- Subcategories (if any) go here -->
+                    </li>
+
+                    <!-- Add more categories as needed -->
+                    <li>
+                      <a href="#" target="_blank" class="flex justify-between items-center p-1 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                          <img src="./assets/images/catlist1.png" alt="Category Image" class="w-8 h-8 rounded-full mr-2">
+                          <span class="text-sm w-full ml-1">Shoes</span>
+                          <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                      </a>
+                      <!-- Subcategories (if any) go here -->
+                  </li>
+
+                  <!-- Add more categories as needed -->
+                  <li>
+                    <a href="#" target="_blank" class="flex justify-between items-center p-1 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <img src="./assets/images/catlist1.png" alt="Category Image" class="w-8 h-8 rounded-full mr-2">
+                        <span class="text-sm w-full ml-1">Books</span>
+                        <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                    </a>
+                    <!-- Subcategories (if any) go here -->
+                </li>
+
+                    </ul>
+                </div>
+            </aside>
         </section>
-        <section class="contact">
-          <div class="contactinfo">
-            <div class="contacttxt">
+        <section class="contact" style="background-image:url(./assets/images/contactImage.png);height: 50%; background-repeat: no-repeat;background-size: cover;">
+          <div class="contactinfo relative" >
+            <div class="contact text-white text-3xl absolute mt-60 pt-60 auto top-32 items-center text-center w-full">
               <h2>We Provide 24/7</h2>
               <h2>Customer Support</h2>
               <h2>+254719404040</h2>
@@ -120,31 +148,40 @@
             </div>
           </div>
         </section>
-        <section class="mobile_app">
-          <div class="mobile_logo">
-            <span class="material-symbols-outlined"> install_mobile </span>
-          </div>
-          <div class="mobile_info">
-            <p>DOWNLOAD MORE APP FOR FREE ON</p>
-          </div>
-          <div class="mobile_store_info">
-            <div class="playstore">
-              <img
-                src="./assets/images/google playstore.png"
-                alt="google playstore"
-              />
-              <div>
-                <h3>playstore</h3>
-              </div>
-            </div>
-            <div class="ios">
-              <img src="./assets/images/ios.png" alt="ios" />
-              <div>
-                <h3>AppStore</h3>
-              </div>
-            </div>
-          </div>
-        </section>
+        <div class="max-w-2xl mx-auto">
+
+                  <div
+                    class="p-4 w-full text-center bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                    <div class="justify-center items-center space-y-4 flex items-center sm:space-y-0 sm:space-x-4" >
+                      <a href="#"
+                        class="w-full sm:w-auto flex bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
+                        <svg class="mr-3 w-7 h-7" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="apple"
+                          role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                          <path fill="currentColor"
+                            d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z">
+                          </path>
+                        </svg>
+                        <div class="text-left">
+                          <div class="mb-1 text-xs"></div>
+                          <div class="-mt-1 font-sans text-sm font-semibold">Mac App Store</div>
+                        </div>
+                      </a>
+                      <a href="#"
+                        class="w-full sm:w-auto flex bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
+                        <svg class="mr-3 w-7 h-7" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google-play"
+                          role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                          <path fill="currentColor"
+                            d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z">
+                          </path>
+                        </svg>
+                        <div class="text-left">
+                          <div class="mb-1 text-xs">Get in on</div>
+                          <div class="-mt-1 font-sans text-sm font-semibold">Google Play</div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
       </section>
       <section class="right">
         <section class="banner">
@@ -169,727 +206,736 @@
             </div>
           </div>
         </section>
-        <section class="searchbar">
-          <div class="search">
-            <div>
-              <input type="text" placeholder="Product" /><span
-                class="material-symbols-outlined"
-              >
-                search
-              </span>
+        <section class="searchbar py-2 ">
+          <div class="search-container   overflow-hidden flex justify-center" style="margin: 0 auto; ">
+            <div class="flex " style="border-radius: 10px;  border: 2px solid #F94F01;"  >
+            <div class="mx-1 flex" >
+              <i class="fa fa-object-group" style="padding-top:1rem ;color: #F94F01; font-size: 20px;" aria-hidden="true"></i><input class="border-none  p-3 w-full" style=" outline: none;" type="text" placeholder="Product" />
             </div>
-            <div>
-              <input type="text" placeholder="Category" /><span
-                class="material-symbols-outlined"
-              >
-                category
-              </span>
+            <div class=" flex ">
+              <i class="fa fa-map-marker" style="padding-top:1rem ; font-size: 20px;color: #F94F01;" aria-hidden="true"></i><input class="border-none p-3 w-full" style="outline: none;" type="text" placeholder="where" />
             </div>
-            <div>
-              <input type="text" placeholder="where" /><span
-                class="material-symbols-outlined"
-              >
-                location_on
-              </span>
-            </div>
-            <div class="submit_button">
-              <button>
-                <span class="material-symbols-outlined"> search </span>
+            <div class="submit_button mx-1">
+              <button class="px-4 py-3 bg-gradient-to-r from-yellow-400 to-red-500 text-white" style="border-radius: 10px;">
+                <i class="fa fa-search text-lg" aria-hidden="true"></i>
               </button>
+            </div>
             </div>
           </div>
         </section>
-        <section class="products">
-          <section class="bronze">
-            <div class="title">
-              <h1>Bronze</h1>
+        <section class="flex">
+        <div
+          
+        >
+        <h1 class="text-3xl pl-2">Featured</h1>
+        <div class="mx-auto grid max-w-6xl grid-cols-2 gap-6 p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5" style="background-color: #dbdcde;">  
+          <article
+            class="relative rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300"
+          >
+            <a href="#">
+              <div class="relative flex justify-center overflow-hidden rounded-xl" style="width: 170px; height: 170px;">
+                <img
+                  src="https://more.co.ke/storage/files/ke/226/thumb-3200x2400-407d6423c8c44df2abb2e81f09c38052.webp"
+                  alt="Hotel Photo" style="object-fit: cover;"
+                />
+                <div class="absolute m-1 top-0 left-0 rounded-lg p-1 shadow-md animate-rotate">
+                  <span class="ml-1 text-sm text-slate-200">
+                    <i class="fa fa-diamond text-3xl animate-spin" style="color: #b9f2ff; font-size: 30px" aria-hidden="true"></i>
+                  </span>
+                </div>
+              
+              </div>
+        
+              <div class="mt-1 p-2">
+                <h2 class="text-slate-700">sport shoe form</h2>
+                <p class="mt-1 text-sm text-slate-400">
+                  Kimani shop
+                  <i class="fa fa-check-circle ml-3" style="color: aquamarine; font-size: 19px ;" aria-hidden="true"></i>
+                </p>
+                <p>
+                  <i
+                    class="fa fa-map-marker mr-2"
+                    style="color: #f94f01"
+                    aria-hidden="true"
+                  ></i
+                  >Location: Thika
+                </p>
+        
+                <div class="mt-3 flex items-end justify-between">
+                  <p class="text-lg font-bold" style="color: #f94f01">
+                    <span style="color: black">Start from :</span> Ksh. 850
+                  </p>
+                </div>
+              </div>
+            </a>
+          </article>
+          <article
+          class="relative rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300"
+        >
+          <a href="#">
+            <div class="relative flex justify-center overflow-hidden rounded-xl" style="width: 170px; height: 170px;">
+              <img
+                src="https://more.co.ke/storage/files/ke/226/thumb-3200x2400-407d6423c8c44df2abb2e81f09c38052.webp"
+                alt="Hotel Photo" style="object-fit: cover;"
+              />
+              <div class="absolute m-1 top-0 left-0 rounded-lg p-1 shadow-md animate-rotate">
+                <span class="ml-1 text-sm text-slate-200">
+                  <i class="fa fa-diamond text-3xl animate-spin" style="color: #b9f2ff; font-size: 30px" aria-hidden="true"></i>
+                </span>
+              </div>
+            
             </div>
-            <div class="product_listing">
-              <div class="product_card">
-                <img
-                  src="./assets/images/productImage.png"
-                  alt="product_image"
-                />
-                <div class="product_info">
-                  <div class="productinfo_name">
-                    <span class="material-symbols-outlined"> person </span>
-                    <p>taa shop</p>
-                    <span class="material-symbols-outlined" id="green">
-                      verified
-                    </span>
-                  </div>
-                  <div class="productinfo_location">
-                    <span class="material-symbols-outlined"> location_on </span>
-                    <p>Kiambu</p>
-                  </div>
-                </div>
-                <div class="product_category">
-                  <p>Animals</p>
-                  <span class="material-symbols-outlined"> category </span>
-                </div>
-                <div class="productactual_name">
-                  <h4>Bird pet for sale</h4>
-                </div>
-                <div class="price_range">
-                  <h4>Starting From: Ksh. 10,000</h4>
-                </div>
-                <div class="view_button">
-                  <p>view</p>
-                </div>
-                <div class="category_range">
-                  <p>Bronze</p>
-                </div>
-                <div class="price_tag">
-                  <span class="material-symbols-outlined"> sell </span>
-                </div>
-              </div>
-              <div class="product_card">
-                <img
-                  src="./assets/images/productImage.png"
-                  alt="product_image"
-                />
-                <div class="product_info">
-                  <div class="productinfo_name">
-                    <span class="material-symbols-outlined"> person </span>
-                    <p>taa shop</p>
-                    <span class="material-symbols-outlined" id="green">
-                      verified
-                    </span>
-                  </div>
-                  <div class="productinfo_location">
-                    <span class="material-symbols-outlined"> location_on </span>
-                    <p>Kiambu</p>
-                  </div>
-                </div>
-                <div class="product_category">
-                  <p>Animals</p>
-                  <span class="material-symbols-outlined"> category </span>
-                </div>
-                <div class="productactual_name">
-                  <h4>Bird pet for sale</h4>
-                </div>
-                <div class="price_range">
-                  <h4>Starting From: Ksh. 10,000</h4>
-                </div>
-                <div class="view_button">
-                  <p>view</p>
-                </div>
-                <div class="category_range">
-                  <p>Bronze</p>
-                </div>
-                <div class="price_tag">
-                  <span class="material-symbols-outlined"> sell </span>
-                </div>
-              </div>
-              <div class="product_card">
-                <img
-                  src="./assets/images/productImage.png"
-                  alt="product_image"
-                />
-                <div class="product_info">
-                  <div class="productinfo_name">
-                    <span class="material-symbols-outlined"> person </span>
-                    <p>taa shop</p>
-                    <span class="material-symbols-outlined" id="green">
-                      verified
-                    </span>
-                  </div>
-                  <div class="productinfo_location">
-                    <span class="material-symbols-outlined"> location_on </span>
-                    <p>Kiambu</p>
-                  </div>
-                </div>
-                <div class="product_category">
-                  <p>Animals</p>
-                  <span class="material-symbols-outlined"> category </span>
-                </div>
-                <div class="productactual_name">
-                  <h4>Bird pet for sale</h4>
-                </div>
-                <div class="price_range">
-                  <h4>Starting From: Ksh. 10,000</h4>
-                </div>
-                <div class="view_button">
-                  <p>view</p>
-                </div>
-                <div class="category_range">
-                  <p>Bronze</p>
-                </div>
-                <div class="price_tag">
-                  <span class="material-symbols-outlined"> sell </span>
-                </div>
-              </div>
-              <div class="product_card">
-                <img
-                  src="./assets/images/productImage.png"
-                  alt="product_image"
-                />
-                <div class="product_info">
-                  <div class="productinfo_name">
-                    <span class="material-symbols-outlined"> person </span>
-                    <p>taa shop</p>
-                    <span class="material-symbols-outlined" id="green">
-                      verified
-                    </span>
-                  </div>
-                  <div class="productinfo_location">
-                    <span class="material-symbols-outlined"> location_on </span>
-                    <p>Kiambu</p>
-                  </div>
-                </div>
-                <div class="product_category">
-                  <p>Animals</p>
-                  <span class="material-symbols-outlined"> category </span>
-                </div>
-                <div class="productactual_name">
-                  <h4>Bird pet for sale</h4>
-                </div>
-                <div class="price_range">
-                  <h4>Starting From: Ksh. 10,000</h4>
-                </div>
-                <div class="view_button">
-                  <p>view</p>
-                </div>
-                <div class="category_range">
-                  <p>Bronze</p>
-                </div>
-                <div class="price_tag">
-                  <span class="material-symbols-outlined"> sell </span>
-                </div>
-              </div>
-              <div class="product_card">
-                <img
-                  src="./assets/images/productImage.png"
-                  alt="product_image"
-                />
-                <div class="product_info">
-                  <div class="productinfo_name">
-                    <span class="material-symbols-outlined"> person </span>
-                    <p>taa shop</p>
-                    <span class="material-symbols-outlined" id="green">
-                      verified
-                    </span>
-                  </div>
-                  <div class="productinfo_location">
-                    <span class="material-symbols-outlined"> location_on </span>
-                    <p>Kiambu</p>
-                  </div>
-                </div>
-                <div class="product_category">
-                  <p>Animals</p>
-                  <span class="material-symbols-outlined"> category </span>
-                </div>
-                <div class="productactual_name">
-                  <h4>Bird pet for sale</h4>
-                </div>
-                <div class="price_range">
-                  <h4>Starting From: Ksh. 10,000</h4>
-                </div>
-                <div class="view_button">
-                  <p>view</p>
-                </div>
-                <div class="category_range">
-                  <p>Bronze</p>
-                </div>
-                <div class="price_tag">
-                  <span class="material-symbols-outlined"> sell </span>
-                </div>
+      
+            <div class="mt-1 p-2">
+              <h2 class="text-slate-700">sport shoe form</h2>
+              <p class="mt-1 text-sm text-slate-400">
+                Kimani shop
+                <i class="fa fa-check-circle ml-3" style="color: aquamarine; font-size: 19px ;" aria-hidden="true"></i>
+              </p>
+              <p>
+                <i
+                  class="fa fa-map-marker mr-2"
+                  style="color: #f94f01"
+                  aria-hidden="true"
+                ></i
+                >Location: Thika
+              </p>
+      
+              <div class="mt-3 flex items-end justify-between">
+                <p class="text-lg font-bold" style="color: #f94f01">
+                  <span style="color: black">Start from :</span> Ksh. 850
+                </p>
               </div>
             </div>
-            <div class="scroll_buttons">
-              <div class="scroll_left">
-                <span class="material-symbols-outlined"> arrow_back_ios </span>
+          </a>
+          </article>
+          <article
+        class="relative rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300"
+      >
+        <a href="#">
+          <div class="relative flex justify-center overflow-hidden rounded-xl" style="width: 170px; height: 170px;">
+            <img
+              src="https://more.co.ke/storage/files/ke/226/thumb-3200x2400-407d6423c8c44df2abb2e81f09c38052.webp"
+              alt="Hotel Photo" style="object-fit: cover;"
+            />
+            <div class="absolute m-1 top-0 left-0 rounded-lg p-1 shadow-md animate-rotate">
+              <span class="ml-1 text-sm text-slate-200">
+                <i class="fa fa-diamond text-3xl animate-spin" style="color: #b9f2ff; font-size: 30px" aria-hidden="true"></i>
+              </span>
+            </div>
+          
+          </div>
+    
+          <div class="mt-1 p-2">
+            <h2 class="text-slate-700">sport shoe form</h2>
+            <p class="mt-1 text-sm text-slate-400">
+              Kimani shop
+              <i class="fa fa-check-circle ml-3" style="color: aquamarine; font-size: 19px ;" aria-hidden="true"></i>
+            </p>
+            <p>
+              <i
+                class="fa fa-map-marker mr-2"
+                style="color: #f94f01"
+                aria-hidden="true"
+              ></i
+              >Location: Thika
+            </p>
+    
+            <div class="mt-3 flex items-end justify-between">
+              <p class="text-lg font-bold" style="color: #f94f01">
+                <span style="color: black">Start from :</span> Ksh. 850
+              </p>
+            </div>
+          </div>
+        </a>
+          </article>
+          <article
+      class="relative rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300"
+    >
+      <a href="#">
+        <div class="relative flex justify-center overflow-hidden rounded-xl" style="width: 170px; height: 170px;">
+          <img
+            src="https://more.co.ke/storage/files/ke/226/thumb-3200x2400-407d6423c8c44df2abb2e81f09c38052.webp"
+            alt="Hotel Photo" style="object-fit: cover;"
+          />
+          <div class="absolute m-1 top-0 left-0 rounded-lg p-1 shadow-md animate-rotate">
+            <span class="ml-1 text-sm text-slate-200">
+              <i class="fa fa-diamond text-3xl animate-spin" style="color: #b9f2ff; font-size: 30px" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+  
+        <div class="mt-1 p-2">
+          <h2 class="text-slate-700">sport shoe form</h2>
+          <p class="mt-1 text-sm text-slate-400">
+            Kimani shop
+            <i class="fa fa-check-circle ml-3" style="color: aquamarine; font-size: 19px ;" aria-hidden="true"></i>
+          </p>
+          <p>
+            <i
+              class="fa fa-map-marker mr-2"
+              style="color: #f94f01"
+              aria-hidden="true"
+            ></i
+            >Location: Thika
+          </p>
+  
+          <div class="mt-3 flex items-end justify-between">
+            <p class="text-lg font-bold" style="color: #f94f01">
+              <span style="color: black">Start from :</span> Ksh. 850
+            </p>
+          </div>
+        </div>
+      </a>
+          </article>
+          <article
+    class="relative rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300"
+  >
+    <a href="#">
+      <div class="relative flex justify-center overflow-hidden rounded-xl" style="width: 170px; height: 170px;">
+        <img
+          src="https://more.co.ke/storage/files/ke/226/thumb-3200x2400-407d6423c8c44df2abb2e81f09c38052.webp"
+          alt="Hotel Photo" style="object-fit: cover;"
+        />
+        <div class="absolute m-1 top-0 left-0 rounded-lg p-1 shadow-md animate-rotate">
+          <span class="ml-1 text-sm text-slate-200">
+            <i class="fa fa-diamond text-3xl animate-spin" style="color: #b9f2ff; font-size: 30px" aria-hidden="true"></i>
+          </span>
+        </div>
+      
+      </div>
+
+      <div class="mt-1 p-2">
+        <h2 class="text-slate-700">sport shoe form</h2>
+        <p class="mt-1 text-sm text-slate-400">
+          Kimani shop
+          <i class="fa fa-check-circle ml-3" style="color: aquamarine; font-size: 19px ;" aria-hidden="true"></i>
+        </p>
+        <p>
+          <i
+            class="fa fa-map-marker mr-2"
+            style="color: #f94f01"
+            aria-hidden="true"
+          ></i
+          >Location: Thika
+        </p>
+
+        <div class="mt-3 flex items-end justify-between">
+          <p class="text-lg font-bold" style="color: #f94f01">
+            <span style="color: black">Start from :</span> Ksh. 850
+          </p>
+        </div>
+      </div>
+    </a>
+          </article>
+          <a href="#" class="">More...</a>
+        </div>
+        <h1 class="text-3xl pl-2">Sponsored</h1>
+        <div class="mx-auto grid max-w-6xl grid-cols-2 gap-6 p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5" style="background-color: #dbdcde;" >
+          <article
+          class="relative rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300"
+        >
+          <a href="#">
+            <div class="relative flex justify-center overflow-hidden rounded-xl" style="width: 170px; height: 170px;">
+              <img
+                src="https://more.co.ke/storage/files/ke/226/thumb-3200x2400-407d6423c8c44df2abb2e81f09c38052.webp"
+                alt="Hotel Photo" style="object-fit: cover;"
+              />
+              <div class="absolute m-1 top-0 left-0 rounded-lg p-1 shadow-md animate-rotate">
+                <span class="ml-1 text-sm text-slate-200">
+                  <i class="fa fa-diamond text-3xl animate-spin" style="color: #FFD700; font-size: 30px" aria-hidden="true"></i>
+                </span>
               </div>
-              <div class="scroll_right">
-                <span class="material-symbols-outlined"> chevron_right </span>
+            
+            </div>
+      
+            <div class="mt-1 p-2">
+              <h2 class="text-slate-700">sport shoe form</h2>
+              <p class="mt-1 text-sm text-slate-400">
+                Kimani shop
+                <i class="fa fa-check-circle ml-3" style="color: aquamarine; font-size: 19px ;" aria-hidden="true"></i>
+              </p>
+              <p>
+                <i
+                  class="fa fa-map-marker mr-2"
+                  style="color: #f94f01"
+                  aria-hidden="true"
+                ></i
+                >Location: Thika
+              </p>
+      
+              <div class="mt-3 flex items-end justify-between">
+                <p class="text-lg font-bold" style="color: #f94f01">
+                  <span style="color: black">Start from :</span> Ksh. 850
+                </p>
               </div>
             </div>
-          </section>
-        </section>
-        <section class="products">
-          <section class="bronze">
-            <div class="title">
-              <h1>Gold</h1>
+          </a>
+          </article>
+          <article
+          class="relative rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300"
+        >
+          <a href="#">
+            <div class="relative flex justify-center overflow-hidden rounded-xl" style="width: 170px; height: 170px;">
+              <img
+                src="https://more.co.ke/storage/files/ke/226/thumb-3200x2400-407d6423c8c44df2abb2e81f09c38052.webp"
+                alt="Hotel Photo" style="object-fit: cover;"
+              />
+              <div class="absolute m-1 top-0 left-0 rounded-lg p-1 shadow-md animate-rotate">
+                <span class="ml-1 text-sm text-slate-200">
+                  <i class="fa fa-diamond text-3xl animate-spin" style="color: #FFD700; font-size: 30px" aria-hidden="true"></i>
+                </span>
+              </div>
+            
             </div>
-            <div class="product_listing">
-              <div class="product_card">
-                <img
-                  src="./assets/images/productImage.png"
-                  alt="product_image"
-                />
-                <div class="product_info">
-                  <div class="productinfo_name">
-                    <span class="material-symbols-outlined"> person </span>
-                    <p>taa shop</p>
-                    <span class="material-symbols-outlined" id="green">
-                      verified
-                    </span>
-                  </div>
-                  <div class="productinfo_location">
-                    <span class="material-symbols-outlined"> location_on </span>
-                    <p>Kiambu</p>
-                  </div>
-                </div>
-                <div class="product_category">
-                  <p>Animals</p>
-                  <span class="material-symbols-outlined"> category </span>
-                </div>
-                <div class="productactual_name">
-                  <h4>Bird pet for sale</h4>
-                </div>
-                <div class="price_range">
-                  <h4>Starting From: Ksh. 10,000</h4>
-                </div>
-                <div class="view_button">
-                  <p>view</p>
-                </div>
-                <div class="category_range">
-                  <p>Gold</p>
-                </div>
-                <div class="price_tag">
-                  <span class="material-symbols-outlined"> sell </span>
-                </div>
-              </div>
-              <div class="product_card">
-                <img
-                  src="./assets/images/productImage.png"
-                  alt="product_image"
-                />
-                <div class="product_info">
-                  <div class="productinfo_name">
-                    <span class="material-symbols-outlined"> person </span>
-                    <p>taa shop</p>
-                    <span class="material-symbols-outlined" id="green">
-                      verified
-                    </span>
-                  </div>
-                  <div class="productinfo_location">
-                    <span class="material-symbols-outlined"> location_on </span>
-                    <p>Kiambu</p>
-                  </div>
-                </div>
-                <div class="product_category">
-                  <p>Animals</p>
-                  <span class="material-symbols-outlined"> category </span>
-                </div>
-                <div class="productactual_name">
-                  <h4>Bird pet for sale</h4>
-                </div>
-                <div class="price_range">
-                  <h4>Starting From: Ksh. 10,000</h4>
-                </div>
-                <div class="view_button">
-                  <p>view</p>
-                </div>
-                <div class="category_range">
-                  <p>Gold</p>
-                </div>
-                <div class="price_tag">
-                  <span class="material-symbols-outlined"> sell </span>
-                </div>
-              </div>
-              <div class="product_card">
-                <img
-                  src="./assets/images/productImage.png"
-                  alt="product_image"
-                />
-                <div class="product_info">
-                  <div class="productinfo_name">
-                    <span class="material-symbols-outlined"> person </span>
-                    <p>taa shop</p>
-                    <span class="material-symbols-outlined" id="green">
-                      verified
-                    </span>
-                  </div>
-                  <div class="productinfo_location">
-                    <span class="material-symbols-outlined"> location_on </span>
-                    <p>Kiambu</p>
-                  </div>
-                </div>
-                <div class="product_category">
-                  <p>Animals</p>
-                  <span class="material-symbols-outlined"> category </span>
-                </div>
-                <div class="productactual_name">
-                  <h4>Bird pet for sale</h4>
-                </div>
-                <div class="price_range">
-                  <h4>Starting From: Ksh. 10,000</h4>
-                </div>
-                <div class="view_button">
-                  <p>view</p>
-                </div>
-                <div class="category_range">
-                  <p>Gold</p>
-                </div>
-                <div class="price_tag">
-                  <span class="material-symbols-outlined"> sell </span>
-                </div>
-              </div>
-              <div class="product_card">
-                <img
-                  src="./assets/images/productImage.png"
-                  alt="product_image"
-                />
-                <div class="product_info">
-                  <div class="productinfo_name">
-                    <span class="material-symbols-outlined"> person </span>
-                    <p>taa shop</p>
-                    <span class="material-symbols-outlined" id="green">
-                      verified
-                    </span>
-                  </div>
-                  <div class="productinfo_location">
-                    <span class="material-symbols-outlined"> location_on </span>
-                    <p>Kiambu</p>
-                  </div>
-                </div>
-                <div class="product_category">
-                  <p>Animals</p>
-                  <span class="material-symbols-outlined"> category </span>
-                </div>
-                <div class="productactual_name">
-                  <h4>Bird pet for sale</h4>
-                </div>
-                <div class="price_range">
-                  <h4>Starting From: Ksh. 10,000</h4>
-                </div>
-                <div class="view_button">
-                  <p>view</p>
-                </div>
-                <div class="category_range">
-                  <p>Gold</p>
-                </div>
-                <div class="price_tag">
-                  <span class="material-symbols-outlined"> sell </span>
-                </div>
-              </div>
-              <div class="product_card">
-                <img
-                  src="./assets/images/productImage.png"
-                  alt="product_image"
-                />
-                <div class="product_info">
-                  <div class="productinfo_name">
-                    <span class="material-symbols-outlined"> person </span>
-                    <p>taa shop</p>
-                    <span class="material-symbols-outlined" id="green">
-                      verified
-                    </span>
-                  </div>
-                  <div class="productinfo_location">
-                    <span class="material-symbols-outlined"> location_on </span>
-                    <p>Kiambu</p>
-                  </div>
-                </div>
-                <div class="product_category">
-                  <p>Animals</p>
-                  <span class="material-symbols-outlined"> category </span>
-                </div>
-                <div class="productactual_name">
-                  <h4>Bird pet for sale</h4>
-                </div>
-                <div class="price_range">
-                  <h4>Starting From: Ksh. 10,000</h4>
-                </div>
-                <div class="view_button">
-                  <p>view</p>
-                </div>
-                <div class="category_range">
-                  <p>Gold</p>
-                </div>
-                <div class="price_tag">
-                  <span class="material-symbols-outlined"> sell </span>
-                </div>
+      
+            <div class="mt-1 p-2">
+              <h2 class="text-slate-700">sport shoe form</h2>
+              <p class="mt-1 text-sm text-slate-400">
+                Kimani shop
+                <i class="fa fa-check-circle ml-3" style="color: aquamarine; font-size: 19px ;" aria-hidden="true"></i>
+              </p>
+              <p>
+                <i
+                  class="fa fa-map-marker mr-2"
+                  style="color: #f94f01"
+                  aria-hidden="true"
+                ></i
+                >Location: Thika
+              </p>
+      
+              <div class="mt-3 flex items-end justify-between">
+                <p class="text-lg font-bold" style="color: #f94f01">
+                  <span style="color: black">Start from :</span> Ksh. 850
+                </p>
               </div>
             </div>
-            <div class="scroll_buttons">
-              <div class="scroll_left">
-                <span class="material-symbols-outlined"> arrow_back_ios </span>
+          </a>
+          </article>
+          <article
+          class="relative rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300"
+        >
+          <a href="#">
+            <div class="relative flex justify-center overflow-hidden rounded-xl" style="width: 170px; height: 170px;">
+              <img
+                src="https://more.co.ke/storage/files/ke/226/thumb-3200x2400-407d6423c8c44df2abb2e81f09c38052.webp"
+                alt="Hotel Photo" style="object-fit: cover;"
+              />
+              <div class="absolute m-1 top-0 left-0 rounded-lg p-1 shadow-md animate-rotate">
+                <span class="ml-1 text-sm text-slate-200">
+                  <i class="fa fa-diamond text-3xl animate-spin" style="color: #FFD700; font-size: 30px" aria-hidden="true"></i>
+                </span>
               </div>
-              <div class="scroll_right">
-                <span class="material-symbols-outlined"> chevron_right </span>
+            
+            </div>
+      
+            <div class="mt-1 p-2">
+              <h2 class="text-slate-700">sport shoe form</h2>
+              <p class="mt-1 text-sm text-slate-400">
+                Kimani shop
+                <i class="fa fa-check-circle ml-3" style="color: aquamarine; font-size: 19px ;" aria-hidden="true"></i>
+              </p>
+              <p>
+                <i
+                  class="fa fa-map-marker mr-2"
+                  style="color: #f94f01"
+                  aria-hidden="true"
+                ></i
+                >Location: Thika
+              </p>
+      
+              <div class="mt-3 flex items-end justify-between">
+                <p class="text-lg font-bold" style="color: #f94f01">
+                  <span style="color: black">Start from :</span> Ksh. 850
+                </p>
               </div>
             </div>
-          </section>
-          <section class="gold"></section>
-          <section class="silver"></section>
-        </section>
-        <section class="products">
-          <section class="bronze">
-            <div class="title">
-              <h1>Silver</h1>
+          </a>
+          </article>
+          <article
+          class="relative rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300"
+        >
+          <a href="#">
+            <div class="relative flex justify-center overflow-hidden rounded-xl" style="width: 170px; height: 170px;">
+              <img
+                src="https://more.co.ke/storage/files/ke/226/thumb-3200x2400-407d6423c8c44df2abb2e81f09c38052.webp"
+                alt="Hotel Photo" style="object-fit: cover;"
+              />
+              <div class="absolute m-1 top-0 left-0 rounded-lg p-1 shadow-md animate-rotate">
+                <span class="ml-1 text-sm text-slate-200">
+                  <i class="fa fa-diamond text-3xl animate-spin" style="color: #FFD700; font-size: 30px" aria-hidden="true"></i>
+                </span>
+              </div>
+            
             </div>
-            <div class="product_listing">
-              <div class="product_card">
-                <img
-                  src="./assets/images/productImage.png"
-                  alt="product_image"
-                />
-                <div class="product_info">
-                  <div class="productinfo_name">
-                    <span class="material-symbols-outlined"> person </span>
-                    <p>taa nusu nusu shop</p>
-                    <span class="material-symbols-outlined" id="green">
-                      verified
-                    </span>
-                  </div>
-                  <div class="productinfo_location">
-                    <span class="material-symbols-outlined"> location_on </span>
-                    <p>Kiambu</p>
-                  </div>
-                </div>
-                <div class="product_category">
-                  <p>Animals</p>
-                  <span class="material-symbols-outlined"> category </span>
-                </div>
-                <div class="productactual_name">
-                  <h4>Bird pet for sale</h4>
-                </div>
-                <div class="price_range">
-                  <h4>Starting From: Ksh. 10,000</h4>
-                </div>
-                <div class="view_button">
-                  <p>view</p>
-                </div>
-                <div class="category_range">
-                  <p>Silver</p>
-                </div>
-                <div class="price_tag">
-                  <span class="material-symbols-outlined"> sell </span>
-                </div>
-              </div>
-              <div class="product_card">
-                <img
-                  src="./assets/images/productImage.png"
-                  alt="product_image"
-                />
-                <div class="product_info">
-                  <div class="productinfo_name">
-                    <span class="material-symbols-outlined"> person </span>
-                    <p>taa shop</p>
-                    <span class="material-symbols-outlined" id="green">
-                      verified
-                    </span>
-                  </div>
-                  <div class="productinfo_location">
-                    <span class="material-symbols-outlined"> location_on </span>
-                    <p>Kiambu</p>
-                  </div>
-                </div>
-                <div class="product_category">
-                  <p>Animals</p>
-                  <span class="material-symbols-outlined"> category </span>
-                </div>
-                <div class="productactual_name">
-                  <h4>Bird pet for sale</h4>
-                </div>
-                <div class="price_range">
-                  <h4>Starting From: Ksh. 10,000</h4>
-                </div>
-                <div class="view_button">
-                  <p>view</p>
-                </div>
-                <div class="category_range">
-                  <p>Silver</p>
-                </div>
-                <div class="price_tag">
-                  <span class="material-symbols-outlined"> sell </span>
-                </div>
-              </div>
-              <div class="product_card">
-                <img
-                  src="./assets/images/productImage.png"
-                  alt="product_image"
-                />
-                <div class="product_info">
-                  <div class="productinfo_name">
-                    <span class="material-symbols-outlined"> person </span>
-                    <p>taa shop</p>
-                    <span class="material-symbols-outlined" id="green">
-                      verified
-                    </span>
-                  </div>
-                  <div class="productinfo_location">
-                    <span class="material-symbols-outlined"> location_on </span>
-                    <p>Kiambu</p>
-                  </div>
-                </div>
-                <div class="product_category">
-                  <p>Animals</p>
-                  <span class="material-symbols-outlined"> category </span>
-                </div>
-                <div class="productactual_name">
-                  <h4>Bird pet for sale</h4>
-                </div>
-                <div class="price_range">
-                  <h4>Starting From: Ksh. 10,000</h4>
-                </div>
-                <div class="view_button">
-                  <p>view</p>
-                </div>
-                <div class="category_range">
-                  <p>Silver</p>
-                </div>
-                <div class="price_tag">
-                  <span class="material-symbols-outlined"> sell </span>
-                </div>
-              </div>
-              <div class="product_card">
-                <img
-                  src="./assets/images/productImage.png"
-                  alt="product_image"
-                />
-                <div class="product_info">
-                  <div class="productinfo_name">
-                    <span class="material-symbols-outlined"> person </span>
-                    <p>taa shop</p>
-                    <span class="material-symbols-outlined" id="green">
-                      verified
-                    </span>
-                  </div>
-                  <div class="productinfo_location">
-                    <span class="material-symbols-outlined"> location_on </span>
-                    <p>Kiambu</p>
-                  </div>
-                </div>
-                <div class="product_category">
-                  <p>Animals</p>
-                  <span class="material-symbols-outlined"> category </span>
-                </div>
-                <div class="productactual_name">
-                  <h4>Bird pet for sale</h4>
-                </div>
-                <div class="price_range">
-                  <h4>Starting From: Ksh. 10,000</h4>
-                </div>
-                <div class="view_button">
-                  <p>view</p>
-                </div>
-                <div class="category_range">
-                  <p>Silver</p>
-                </div>
-                <div class="price_tag">
-                  <span class="material-symbols-outlined"> sell </span>
-                </div>
-              </div>
-              <div class="product_card">
-                <img
-                  src="./assets/images/productImage.png"
-                  alt="product_image"
-                />
-                <div class="product_info">
-                  <div class="productinfo_name">
-                    <span class="material-symbols-outlined"> person </span>
-                    <p>taa shop</p>
-                    <span class="material-symbols-outlined" id="green">
-                      verified
-                    </span>
-                  </div>
-                  <div class="productinfo_location">
-                    <span class="material-symbols-outlined"> location_on </span>
-                    <p>Kiambu</p>
-                  </div>
-                </div>
-                <div class="product_category">
-                  <p>Animals</p>
-                  <span class="material-symbols-outlined"> category </span>
-                </div>
-                <div class="productactual_name">
-                  <h4>Bird pet for sale</h4>
-                </div>
-                <div class="price_range">
-                  <h4>Starting From: Ksh. 10,000</h4>
-                </div>
-                <div class="view_button">
-                  <p>view</p>
-                </div>
-                <div class="category_range">
-                  <p>Silver</p>
-                </div>
-                <div class="price_tag">
-                  <span class="material-symbols-outlined"> sell </span>
-                </div>
+      
+            <div class="mt-1 p-2">
+              <h2 class="text-slate-700">sport shoe form</h2>
+              <p class="mt-1 text-sm text-slate-400">
+                Kimani shop
+                <i class="fa fa-check-circle ml-3" style="color: aquamarine; font-size: 19px ;" aria-hidden="true"></i>
+              </p>
+              <p>
+                <i
+                  class="fa fa-map-marker mr-2"
+                  style="color: #f94f01"
+                  aria-hidden="true"
+                ></i
+                >Location: Thika
+              </p>
+      
+              <div class="mt-3 flex items-end justify-between">
+                <p class="text-lg font-bold" style="color: #f94f01">
+                  <span style="color: black">Start from :</span> Ksh. 850
+                </p>
               </div>
             </div>
-            <div class="scroll_buttons">
-              <div class="scroll_left">
-                <span class="material-symbols-outlined"> arrow_back_ios </span>
+          </a>
+          </article>
+          <article
+          class="relative rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300"
+        >
+          <a href="#">
+            <div class="relative flex justify-center overflow-hidden rounded-xl" style="width: 170px; height: 170px;">
+              <img
+                src="https://more.co.ke/storage/files/ke/226/thumb-3200x2400-407d6423c8c44df2abb2e81f09c38052.webp"
+                alt="Hotel Photo" style="object-fit: cover;"
+              />
+              <div class="absolute m-1 top-0 left-0 rounded-lg p-1 shadow-md animate-rotate">
+                <span class="ml-1 text-sm text-slate-200">
+                  <i class="fa fa-diamond text-3xl animate-spin" style="color: #FFD700; font-size: 30px" aria-hidden="true"></i>
+                </span>
               </div>
-              <div class="scroll_right">
-                <span class="material-symbols-outlined"> chevron_right </span>
+            
+            </div>
+      
+            <div class="mt-1 p-2">
+              <h2 class="text-slate-700">sport shoe form</h2>
+              <p class="mt-1 text-sm text-slate-400">
+                Kimani shop
+                <i class="fa fa-check-circle ml-3" style="color: aquamarine; font-size: 19px ;" aria-hidden="true"></i>
+              </p>
+              <p>
+                <i
+                  class="fa fa-map-marker mr-2"
+                  style="color: #f94f01"
+                  aria-hidden="true"
+                ></i
+                >Location: Thika
+              </p>
+      
+              <div class="mt-3 flex items-end justify-between">
+                <p class="text-lg font-bold" style="color: #f94f01">
+                  <span style="color: black">Start from :</span> Ksh. 850
+                </p>
               </div>
             </div>
-          </section>
-          <section class="gold"></section>
-          <section class="silver"></section>
+          </a>
+          </article>
+          <a href="#" class="">More...</a>
+        </div>
+        <h1 class="text-3xl pl-2">Silver</h1>
+        <div class="mx-auto grid max-w-6xl grid-cols-2 gap-6 p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5" style="background-color: #dbdcde;">
+          <article
+          class="relative rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300"
+        >
+          <a href="#">
+            <div class="relative flex justify-center overflow-hidden rounded-xl" style="width: 170px; height: 170px;">
+              <img
+                src="https://more.co.ke/storage/files/ke/226/thumb-3200x2400-407d6423c8c44df2abb2e81f09c38052.webp"
+                alt="Hotel Photo" style="object-fit: cover;"
+              />
+              <div class="absolute m-1 top-0 left-0 rounded-lg p-1 shadow-md animate-rotate">
+                <span class="ml-1 text-sm text-slate-200">
+                  <i class="fa fa-diamond text-3xl animate-spin" style="color: #808080; font-size: 30px" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+            </div>
+      
+            <div class="mt-1 p-2">
+              <h2 class="text-slate-700">sport shoe form</h2>
+              <p class="mt-1 text-sm text-slate-400">
+                Kimani shop
+                <i class="fa fa-check-circle ml-3" style="color: aquamarine; font-size: 19px ;" aria-hidden="true"></i>
+              </p>
+              <p>
+                <i
+                  class="fa fa-map-marker mr-2"
+                  style="color: #f94f01"
+                  aria-hidden="true"
+                ></i
+                >Location: Thika
+              </p>
+      
+              <div class="mt-3 flex items-end justify-between">
+                <p class="text-lg font-bold" style="color: #f94f01">
+                  <span style="color: black">Start from :</span> Ksh. 850
+                </p>
+              </div>
+            </div>
+          </a>
+          </article>
+          <article
+          class="relative rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300"
+        >
+          <a href="#">
+            <div class="relative flex justify-center overflow-hidden rounded-xl" style="width: 170px; height: 170px;">
+              <img
+                src="https://more.co.ke/storage/files/ke/226/thumb-3200x2400-407d6423c8c44df2abb2e81f09c38052.webp"
+                alt="Hotel Photo" style="object-fit: cover;"
+              />
+              <div class="absolute m-1 top-0 left-0 rounded-lg p-1 shadow-md animate-rotate">
+                <span class="ml-1 text-sm text-slate-200">
+                  <i class="fa fa-diamond text-3xl animate-spin" style="color: #808080; font-size: 30px" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+            </div>
+      
+            <div class="mt-1 p-2">
+              <h2 class="text-slate-700">sport shoe form</h2>
+              <p class="mt-1 text-sm text-slate-400">
+                Kimani shop
+                <i class="fa fa-check-circle ml-3" style="color: aquamarine; font-size: 19px ;" aria-hidden="true"></i>
+              </p>
+              <p>
+                <i
+                  class="fa fa-map-marker mr-2"
+                  style="color: #f94f01"
+                  aria-hidden="true"
+                ></i
+                >Location: Thika
+              </p>
+      
+              <div class="mt-3 flex items-end justify-between">
+                <p class="text-lg font-bold" style="color: #f94f01">
+                  <span style="color: black">Start from :</span> Ksh. 850
+                </p>
+              </div>
+            </div>
+          </a>
+          </article>
+          <article
+          class="relative rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300"
+        >
+          <a href="#">
+            <div class="relative flex justify-center overflow-hidden rounded-xl" style="width: 170px; height: 170px;">
+              <img
+                src="https://more.co.ke/storage/files/ke/226/thumb-3200x2400-407d6423c8c44df2abb2e81f09c38052.webp"
+                alt="Hotel Photo" style="object-fit: cover;"
+              />
+              <div class="absolute m-1 top-0 left-0 rounded-lg p-1 shadow-md animate-rotate">
+                <span class="ml-1 text-sm text-slate-200">
+                  <i class="fa fa-diamond text-3xl animate-spin" style="color: #808080; font-size: 30px" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+            </div>
+      
+            <div class="mt-1 p-2">
+              <h2 class="text-slate-700">sport shoe form</h2>
+              <p class="mt-1 text-sm text-slate-400">
+                Kimani shop
+                <i class="fa fa-check-circle ml-3" style="color: aquamarine; font-size: 19px ;" aria-hidden="true"></i>
+              </p>
+              <p>
+                <i
+                  class="fa fa-map-marker mr-2"
+                  style="color: #f94f01"
+                  aria-hidden="true"
+                ></i
+                >Location: Thika
+              </p>
+      
+              <div class="mt-3 flex items-end justify-between">
+                <p class="text-lg font-bold" style="color: #f94f01">
+                  <span style="color: black">Start from :</span> Ksh. 850
+                </p>
+              </div>
+            </div>
+          </a>
+          </article>
+          <article
+          class="relative rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300"
+        >
+          <a href="#">
+            <div class="relative flex justify-center overflow-hidden rounded-xl" style="width: 170px; height: 170px;">
+              <img
+                src="https://more.co.ke/storage/files/ke/226/thumb-3200x2400-407d6423c8c44df2abb2e81f09c38052.webp"
+                alt="Hotel Photo" style="object-fit: cover;"
+              />
+              <div class="absolute m-1 top-0 left-0 rounded-lg p-1 shadow-md animate-rotate">
+                <span class="ml-1 text-sm text-slate-200">
+                  <i class="fa fa-diamond text-3xl animate-spin" style="color: #808080; font-size: 30px" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+            </div>
+      
+            <div class="mt-1 p-2">
+              <h2 class="text-slate-700">sport shoe form</h2>
+              <p class="mt-1 text-sm text-slate-400">
+                Kimani shop
+                <i class="fa fa-check-circle ml-3" style="color: aquamarine; font-size: 19px ;" aria-hidden="true"></i>
+              </p>
+              <p>
+                <i
+                  class="fa fa-map-marker mr-2"
+                  style="color: #f94f01"
+                  aria-hidden="true"
+                ></i
+                >Location: Thika
+              </p>
+      
+              <div class="mt-3 flex items-end justify-between">
+                <p class="text-lg font-bold" style="color: #f94f01">
+                  <span style="color: black">Start from :</span> Ksh. 850
+                </p>
+              </div>
+            </div>
+          </a>
+          </article>
+          <article
+          class="relative rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300"
+        >
+          <a href="#">
+            <div class="relative flex justify-center overflow-hidden rounded-xl" style="width: 170px; height: 170px;">
+              <img
+                src="https://more.co.ke/storage/files/ke/226/thumb-3200x2400-407d6423c8c44df2abb2e81f09c38052.webp"
+                alt="Hotel Photo" style="object-fit: cover;"
+              />
+              <div class="absolute m-1 top-0 left-0 rounded-lg p-1 shadow-md animate-rotate">
+                <span class="ml-1 text-sm text-slate-200">
+                  <i class="fa fa-diamond text-3xl animate-spin" style="color: #808080; font-size: 30px" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+            </div>
+      
+            <div class="mt-1 p-2">
+              <h2 class="text-slate-700">sport shoe form</h2>
+              <p class="mt-1 text-sm text-slate-400">
+                Kimani shop
+                <i class="fa fa-check-circle ml-3" style="color: aquamarine; font-size: 19px ;" aria-hidden="true"></i>
+              </p>
+              <p>
+                <i
+                  class="fa fa-map-marker mr-2"
+                  style="color: #f94f01"
+                  aria-hidden="true"
+                ></i
+                >Location: Thika
+              </p>
+      
+              <div class="mt-3 flex items-end justify-between">
+                <p class="text-lg font-bold" style="color: #f94f01">
+                  <span style="color: black">Start from :</span> Ksh. 850
+                </p>
+              </div>
+            </div>
+          </a>
+          </article>
+        </div>
+        </div>
         </section>
       </section>
     </section>
     <section class="footer">
-      <div class="firstdiv">
-        <div class="footer_logo">
-          <img src="./assets/images/footerlogo.png" alt="footerlogo" />
+      <footer class=" text-white" style="background-color: #2B303A;">
+        <div class="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8 text-white">
+          <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+            <div>
+            <img src="./assets/images/morelogo.png" class="mr-5 h-6 sm:h-9" alt="logo" />
+              <p class="max-w-xs mt-4 text-sm text-white" >
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, accusantium.
+              </p>
+              <div class="flex mt-8 space-x-6 text-white">
+                <a class="hover:opacity-75" href target="_blank" rel="noreferrer">
+                  <span class="sr-only text-white"> Facebook </span>
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
+                  </svg>
+                </a>
+                <a class="hover:opacity-75" href target="_blank" rel="noreferrer">
+                  <span class="sr-only"> Instagram </span>
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fillRule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clipRule="evenodd" />
+                  </svg>
+                </a>
+                <a class="hover:opacity-75" href target="_blank" rel="noreferrer">
+                  <span class="sr-only"> Twitter </span>
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                  </svg>
+                </a>
+                <a class="hover:opacity-75" href target="_blank" rel="noreferrer">
+                  <span class="sr-only"> GitHub </span>
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+                  </svg>
+                </a>
+                <a class="hover:opacity-75" href target="_blank" rel="noreferrer">
+                  <span class="sr-only"> Dribbble </span>
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fillRule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z" clipRule="evenodd" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 gap-8 lg:col-span-2 sm:grid-cols-2 lg:grid-cols-4 text-white">
+              <div>
+                <p class="font-medium">
+                  Company
+                </p>
+                <nav class="flex flex-col mt-4 space-y-2 text-sm text-white">
+                  <a class="hover:opacity-75" href> About </a>
+                  <a class="hover:opacity-75" href> Meet the Team </a>
+                  <a class="hover:opacity-75" href> History </a>
+                  <a class="hover:opacity-75" href> Careers </a>
+                </nav>
+              </div>
+              <div>
+                <p class="font-medium">
+                  Services
+                </p>
+                <nav class="flex flex-col mt-4 space-y-2 text-sm text-white">
+                  <a class="hover:opacity-75" href> 1on1 Coaching </a>
+                  <a class="hover:opacity-75" href> Company Review </a>
+                  <a class="hover:opacity-75" href> Accounts Review </a>
+                  <a class="hover:opacity-75" href> HR Consulting </a>
+                  <a class="hover:opacity-75" href> SEO Optimisation </a>
+                </nav>
+              </div>
+              <div>
+                <p class="font-medium">
+                  Helpful Links
+                </p>
+                <nav class="flex flex-col mt-4 space-y-2 text-sm text-white">
+                  <a class="hover:opacity-75" href> Contact </a>
+                  <a class="hover:opacity-75" href> FAQs </a>
+                  <a class="hover:opacity-75" href> Live Chat </a>
+                </nav>
+              </div>
+              <div>
+                <p class="font-medium">
+                  Legal
+                </p>
+                <nav class="flex flex-col mt-4 space-y-2 text-sm text-white">
+                  <a class="hover:opacity-75" href> Privacy Policy </a>
+                  <a class="hover:opacity-75" href> Terms &amp; Conditions </a>
+                  <a class="hover:opacity-75" href> Returns Policy </a>
+                  <a class="hover:opacity-75" href> Accessibility </a>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <p class="mt-8 text-xs text-gray-800">
+            © 2023 More clasifieds
+          </p>
         </div>
-        <div class="footer_socialmedia">
-          <ol>
-            <li>
-              <img src="./assets/images/logos_facebook.png" alt="facebook" />
-            </li>
-            <li>
-              <img
-                src="./assets/images/skill-icons_twitter.png"
-                alt="twitter"
-              />
-            </li>
-            <li>
-              <img
-                src="./assets/images/skill-icons_linkedin.png"
-                alt="linkedin"
-              />
-            </li>
-          </ol>
-        </div>
-      </div>
-      <div class="seconddiv footer_margin">
-        <div class="title">
-          <h3>About Us</h3>
-        </div>
-        <div class="aboutus_list">
-          <ol>
-            <li>How to make money</li>
-            <li>About us</li>
-            <li>Premium Package</li>
-            <li>Faq</li>
-          </ol>
-        </div>
-      </div>
-      <div class="thirddiv footer_margin">
-        <div class="title">
-          <h3>Contact and Site Map</h3>
-        </div>
-        <div class="aboutus_list">
-          <ol>
-            <li>Contact Us</li>
-            <li>Site Map</li>
-            <li>Countries</li>
-            <li>Ant-Scam</li>
-          </ol>
-        </div>
-      </div>
-      <div class="fouthdiv footer_margin">
-        <div class="title">
-          <h3>My Account</h3>
-        </div>
-        <div class="aboutus_list">
-          <ol>
-            <li>Login</li>
-            <li>Register</li>
-            <li>Terms of usage</li>
-            <li>Privacy Policy</li>
-          </ol>
-        </div>
-      </div>
+      </footer>
     </section>
   </body>
 </html>
